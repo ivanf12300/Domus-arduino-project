@@ -1,0 +1,1 @@
+El programa es y será siempre de código abierto, cualquier persona puede usarlo como una base o si desea aprender mas acerca de la domotica, programar en arduino o usar app inventor, que tu imaginación sea tus metas y la plata el limite, o viceversa.
