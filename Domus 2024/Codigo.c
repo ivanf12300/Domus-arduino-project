@@ -1,31 +1,28 @@
 #include <SoftwareSerial.h>
-int estado = 10;
+int estado = 0;
+
 void setup() {
-    Serial.begin(9600);
-    pinMode(7,OUTPUT);
+    Serial.begin(9600); /*Iniciar la conexión entre el arduino y la placa a bluetooth*/
     pinMode(8,OUTPUT);
-    pinMode(9,OUTPUT);
-    pinMode(10,OUTPUT);
 }
 void loop() {
+  /*Busca todos los dispositivos bluetooth vinculados al celular*/
     if (Serial.available() > 0 ){
         estado = Serial.read();
     }
+    
     switch(estado)
     {
-        case 'a':
+      /*Recibe el mensaje 1, encender*/
+        case '1':
             digitalWrite(8,HIGH);
             break;
-        case 'b':
+      /*Recible el mensaje 0, apagar*/
+        case '0':
             digitalWrite(8,LOW);
             break;
-        case 'c':
-            digitalWrite(9,HIGH);
-            break;
-        case 'd':
-            digitalWrite(9,LOW);
-            break;
-        /*case 'n':
-            <datos>*/
+      /*Deja un tiempo de respuesta para evitar errores entre la conexión*/
+        delay(10);
     }
+}
 }
